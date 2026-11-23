@@ -620,10 +620,6 @@ void setrangeCommand(client *c) {
             return;
         }
 
-        /* Return when the resulting string exceeds allowed size */
-        if (checkStringLength(c,offset,value_len) != C_OK)
-            return;
-
         /* Create a copy when the object is shared or encoded. */
         kv = dbUnshareStringValueByLink(c->db, c->argv[1], kv, link);
 

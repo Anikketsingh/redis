@@ -1,0 +1,18 @@
+# Demo: whyblame warns when a pull request removes protective code whose history says it
+# matters. Redis's own workflows are removed on this demo branch so only this check runs.
+name: whyblame
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  protective-code:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0 # tracing needs the full history
+      - uses: Anikketsingh/Provenance-Aware-Code-Intelligence@main
