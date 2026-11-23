@@ -12,7 +12,7 @@ jobs:
   protective-code:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0 # tracing needs the full history
       - uses: Anikketsingh/Provenance-Aware-Code-Intelligence@main
